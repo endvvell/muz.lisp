@@ -55,7 +55,7 @@ $ echo "alias muz='/usr/local/bin/muz'" >> ~/.bashrc
 
 ## Preview
 
-![muz_preview_1](./preview_assets/muz_preview_1.png)
+https://github.com/user-attachments/assets/d4da8ee0-a62f-4541-82cd-16a9e355165e
 
 ![muz_preview_2](./preview_assets/muz_preview_2.png)
 
