@@ -288,7 +288,8 @@
                                                                  (remove-if #'(lambda (prim)
                                                                                 (member prim found-valid-options
                                                                                         :test #'(lambda (prim alt)
-                                                                                                  ;; TODO: this still doesn't match as I would like: try 3a123b => (3a 123b) instead of (3a 1 2 3b)
+                                                                                                  ;; TODO: this still doesn't match as I would like it to:
+                                                                                                  ;; try 3a123b => (3a 123b) instead of (3a 1 2 3b)
                                                                                                   (str:contains? prim alt))))
                                                                    (rex:all-matches-as-strings primary-level-rex user-choice))))
         :do
@@ -330,7 +331,9 @@
 
 
 ;; TODO: these can later be made into a switch function
-(defun init-major () ;; TODO: should probably rename this into something that indicates that these function are only responsible for attaching names "major" and "minor" to scales
+(defun init-major ()
+  ;; TODO: should probably rename this into something that indicates
+  ;; that these function are only responsible for attaching names "major" and "minor" to scales
   (mapcar #'(lambda (each-letter)
               (str:unwords (list each-letter "major")))
     *alphabet*))
@@ -707,7 +710,6 @@
                                               0 (1+ idx-of-root-in-alphabet)))
                                     ;; ^^ looks like this: (D E F G A B C D)
                               ))
-    ;; TODO: clean up all the useless comments everywhere
     (loop :with correct-notation-scale = '()
           :for previous-degree = 0 :then each-degree
           :for previous-letter = root-note-of-scale :then (char (first (last correct-notation-scale)) 0)
@@ -715,7 +717,7 @@
           :for each-degree :in scale-formula
           :for degree-diff = 0 :then (- each-degree previous-degree)
           :do
-            (let* ((correct-alphabet-letter (if (< degree-diff 4) ;; we don't care about keeping track of the next letter if the distance between the degrees is more than 3 half-steps ;; TODO: test this
+            (let* ((correct-alphabet-letter (if (< degree-diff 4) ;; we don't care about keeping track of the next letter if the distance between the degrees is more than 3 half-steps
                                                 (nth (length correct-notation-scale) correct-alphabet-of-scale)
                                                 (nth (+ ;; count of all current letters the scale contains:
                                                        (length correct-notation-scale)
@@ -740,7 +742,7 @@
                                                                   ((= degree-diff 2) ;; a degree difference of 2 would mean a whole step is made from one letter to the next,
                                                                                     ;; which implies that the accidental stays the same (E and B jumps are accounted for in the code below)
                                                                                     previous-accidental-as-digit)
-                                                                  ((= degree-diff 3) (+ previous-accidental-as-digit 1)) ;; TODO: not sure about this, test this
+                                                                  ((= degree-diff 3) (+ previous-accidental-as-digit 1))
                                                                   ;; if degree-diff is more or equal to 4, then apply no accidental (0):
                                                                   ((>= degree-diff 4) 0)
                                                                   (t ;; else, assume degree-diff = 0 (meaning we are on the same note, ergo same accidental)
@@ -899,7 +901,6 @@
   (declare (type list ;; looks like this: (5 (F♭ minor))
                  question-data)
            (type (or list string) user-answer))
-  ;; TODO: you need to rename the names of the variables in here:
   (let* ((right-adjusted-padding (length "Relative Minor :"))
          (tone-to-find (first question-data))
          (simplified-user-answer (cond ((s= gameplay-option "1")
