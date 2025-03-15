@@ -541,7 +541,7 @@
                                                  idx-of-letter-in-alphabet)))))
 
            ;; adjusting for jumps between B -> C and E -> F
-           (idx-of-next-letter-relative-to-alphabet-list (if (or (member "E" preliminary-subseq :test #'s=) ;; TODO: I don't think this should be for each encounter
+           (idx-of-next-letter-relative-to-alphabet-list (if (or (member "E" preliminary-subseq :test #'s=)
                                                                  (member "B" preliminary-subseq :test #'s=))
                                                              ;; here we are adding the half-step to account for an irregular jump to the `remainder`
                                                              ;; and divining the result by 2, and the resulting full-step goes towards producing the correct index of the correct next letter

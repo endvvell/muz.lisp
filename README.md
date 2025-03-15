@@ -37,7 +37,7 @@ Clone the repo:
 $ git clone https://github.com/endvvell/muz.lisp.git
 ```
 
-While in directory of the project, run:
+While in the directory of the project, run:
 
 ```bash
 $ make
