@@ -17,7 +17,6 @@ Options:
         alternatives such as "#" and "b".
 
 -c    - Prints out a cheat sheet for major and minor scales.
-        Can be used with "-b" to print the notes with "simple" notation.
 
 -a    - Specifies how many alternative notations should be printed for
         each scale if `-c` flag is used [default: 2].
