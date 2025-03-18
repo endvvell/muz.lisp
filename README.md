@@ -48,6 +48,7 @@ The resulting binary will be compiled into the `bin/` directory.
 > You can copy the script into a directory that is usually present in your PATH (so you can access it from any directory) and set up a convenient alias for it:
 
 ```bash
+# might need to run this command as sudo
 $ cp ./bin/muz /usr/local/bin/
 
 $ echo "alias muz='/usr/local/bin/muz'" >> ~/.bashrc
